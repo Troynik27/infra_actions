@@ -61,10 +61,10 @@ jobs:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
-        host: 158.160.20.181
-        username: troynik
-        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCr6PpXaiHUOxdPuAHkMZr+2XgzXZTpogWo1dlev85YWHIlxCrbBZyb7Wq/PQrerWJii4ihndtGNZer3CtDRV/B5Z5eGF6bJFlqlvDvDPfl4N78BPykzt/jDg2e27xUZxmQp5exHqH5E/iVX1bLq/sdnXNq9CW3/it8jKDnJmY7Pn1M+3SLGVCRO/R7WUrrgJWQFXmgdbVHMmFrHNDIzWbKR8e6NKux0lIxjOdpDtLpuU6WU/yr6hMt+Ji1XXzLbhI2CsCvlpOBdn+/vgm1kNxbqXb0hkAIJKCe2v+K6FESp4ZPv2wsnQMmBRGVvWk0eWU0offX5AVU20plGlFLqCKh48jYEac4aXioPXedDIBEbIaj5n4OXEKsYZQ7KPRFZ7ebmerdb+ziD8kMGaV2F/gJFcQ/AzX/+/9YHFH8zYUuPnV0jn8u7KpGrn9QkUlPxAJP84DjxtHjRGBqpIo5F5KfJvdBAJvz9bnjDMvNsLWggqhIxaOVB8mnNMR8josS460= Николай@Troynik
-        passphrase: Sqckgesqpknqb27 # Если ваш ssh-ключ защищён фразой-паролем
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.SSH_KEY }}
+        passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
         script: |
           # Выполняет pull образа с DockerHub
           sudo docker pull troynik27/infraact:latest
